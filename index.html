@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caleb Ruble — Creative Technologist</title>
+<meta name="description" content="Caleb Ruble — Creative Technologist. 3D, motion, VFX, brand, and AI. National-brand work for Serta, Sleeper, PrizePicks, Squatty Potty, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#15171b; --bg2:#1d2026; --card:#1b1e24; --ink:#eceef1; --soft:#c7ccd2; --muted:#8b9298;
+  --teal:#3fc9bd; --teal2:#62d8cd; --magenta:#ff5ba6; --line:rgba(255,255,255,.09);
+  --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Libre Franklin',-apple-system,BlinkMacSystemFont,sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(21,23,27,.72);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.04em;font-size:15px}
+.brand img{height:30px;width:auto}
+.nav{display:flex;gap:26px;font-size:13.5px;font-weight:500;letter-spacing:.02em;color:var(--soft)}
+.nav a{transition:color .2s} .nav a:hover{color:var(--teal2)}
+.nav .cta{color:var(--bg);background:var(--teal);padding:7px 15px;border-radius:6px;font-weight:600}
+.nav .cta:hover{background:var(--teal2);color:var(--bg)}
+@media(max-width:620px){.nav a:not(.cta){display:none}}
+
+/* hero */
+.hero{position:relative;padding:96px 0 60px;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-30%;right:-10%;width:780px;height:780px;
+  background:radial-gradient(circle, rgba(63,201,189,.16), rgba(63,201,189,0) 60%);pointer-events:none}
+.hero::after{content:"";position:absolute;bottom:-40%;left:-15%;width:620px;height:620px;
+  background:radial-gradient(circle, rgba(255,91,166,.08), rgba(255,91,166,0) 62%);pointer-events:none}
+.eyebrow{color:var(--teal2);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:12.5px;margin-bottom:18px}
+.hero h1{font-weight:900;letter-spacing:-.01em;line-height:.96;font-size:clamp(46px,8.5vw,104px);margin:0 0 6px}
+.hero h1 .amp{color:var(--teal)}
+.role{font-weight:700;font-size:clamp(15px,2.4vw,21px);color:var(--soft);letter-spacing:.01em;margin-bottom:26px}
+.role b{color:var(--teal2);font-weight:700}
+.lede{max-width:620px;color:var(--soft);font-size:17px;line-height:1.7}
+.contact{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--bg2);
+  padding:9px 15px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--soft);transition:.2s}
+.chip:hover{border-color:var(--teal);color:var(--ink);transform:translateY(-2px)}
+.chip.solid{background:var(--teal);color:#0c1416;border-color:var(--teal);font-weight:600}
+.chip.solid:hover{background:var(--teal2)}
+
+/* section head */
+.sec{padding:30px 0 70px}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;border-top:1px solid var(--line);
+  padding-top:22px;margin-bottom:28px}
+.sechead h2{font-weight:800;font-size:clamp(22px,3vw,30px);letter-spacing:-.01em}
+.sechead span{color:var(--muted);font-size:13.5px;font-weight:500;letter-spacing:.02em}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px}
+.tile{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;opacity:0;transform:translateY(18px);transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .55s,border-color .25s}
+.tile.in{opacity:1;transform:none}
+.tile:hover{border-color:rgba(63,201,189,.5)}
+.tile .imgwrap{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0f1114}
+.tile .imgwrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.tile:hover .imgwrap img{transform:scale(1.055)}
+.tile.feature{grid-column:span 2}
+@media(max-width:760px){.tile.feature{grid-column:span 1}}
+.badge{position:absolute;top:12px;left:12px;z-index:2;font-size:11.5px;font-weight:600;letter-spacing:.02em;
+  padding:6px 11px;border-radius:7px;backdrop-filter:blur(6px)}
+.badge.gold{background:rgba(255,91,166,.16);color:#ffd0e6;border:1px solid rgba(255,91,166,.45)}
+.badge.teal{background:rgba(63,201,189,.16);color:#bff2ec;border:1px solid rgba(63,201,189,.45)}
+.info{padding:17px 19px 19px;display:flex;flex-direction:column;gap:7px;flex:1}
+.tag{color:var(--teal2);font-size:11.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase}
+.info h3{font-size:18px;font-weight:700;letter-spacing:-.005em;display:flex;align-items:center;gap:8px}
+.info h3 .ar{color:var(--teal);font-size:14px;opacity:0;transform:translate(-4px,2px);transition:.25s}
+.tile:hover .info h3 .ar{opacity:1;transform:none}
+.info p{color:var(--muted);font-size:14px;line-height:1.55}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:64px 0 56px;background:var(--bg2)}
+.foot{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-start}
+.foot h3{font-size:clamp(24px,4vw,40px);font-weight:900;letter-spacing:-.01em;line-height:1.05;max-width:560px}
+.foot h3 b{color:var(--teal)}
+.flinks{display:flex;flex-direction:column;gap:11px;font-size:14.5px;color:var(--soft)}
+.flinks a{display:inline-flex;align-items:center;gap:9px;transition:.2s}
+.flinks a:hover{color:var(--teal2)}
+.fine{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;
+  gap:14px;justify-content:space-between;color:var(--muted);font-size:12.5px}
+.fine .note{max-width:640px;line-height:1.5}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="cmr-mark.png" alt="Caleb Ruble monogram">CALEB RUBLE</a>
+    <nav class="nav">
+      <a href="#work">Work</a>
+      <a href="CalebRuble_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      <a class="cta" href="mailto:calebruble@gmail.com">Get in touch</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow reveal">Creative Technologist · Spokane–Coeur d'Alene</div>
+    <h1 class="reveal">CALEB<br>RUBLE</h1>
+    <div class="role reveal">Design · Motion / VFX · 3D · <b>AI &amp; Automation</b></div>
+    <p class="lede reveal">I pair high-end visual craft — 3D, motion, VFX, and brand — with practical AI and automation. The goal is always the same: balance the humanity of the work with its technical potential, without losing intentionality.</p>
+    <div class="contact reveal">
+      <a class="chip solid" href="mailto:calebruble@gmail.com">✉&nbsp; calebruble@gmail.com</a>
+      <a class="chip" href="https://www.linkedin.com/in/caleb-ruble" target="_blank" rel="noopener">in&nbsp; LinkedIn</a>
+      <a class="chip" href="CalebRuble_Resume.pdf" target="_blank" rel="noopener">↓&nbsp; Résumé (PDF)</a>
+    </div>
+  </div>
+</header>
+
+<main class="sec" id="work">
+  <div class="wrap">
+    <div class="sechead reveal">
+      <h2>Selected Work</h2>
+      <span>National-brand 3D · VFX · Motion · Brand</span>
+    </div>
+    <div class="grid">
+
+      <a class="tile feature" href="https://youtu.be/wdsRpmUmHis" target="_blank" rel="noopener">
+        <span class="badge gold">Golden-ADDY campaign* · 200M+ impressions</span>
+        <div class="imgwrap"><img loading="lazy" src="stills/squattypotty.jpg" alt="Squatty Potty Happy Tummy Tour"></div>
+        <div class="info">
+          <span class="tag">3D · VFX · Motion</span>
+          <h3>Squatty Potty — “Happy Tummy Tour” <span class="ar">↗</span></h3>
+          <p>3D environments, character integration, and finishing VFX for the national rebrand campaign.</p>
+        </div>
+      </a>
+
+      <div class="tile">
+        <div class="imgwrap"><img loading="lazy" src="stills/pursteam.jpg" alt="PurSteam 3D product render"></div>
+        <div class="info">
+          <span class="tag">3D Product Viz</span>
+          <h3>PurSteam — Product Visualization</h3>
+          <p>High-fidelity 3D hero renders — modeling, materials, lighting, and motion (Blender).</p>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="imgwrap"><img loading="lazy" src="stills/serta.jpg" alt="Serta mattress 3D cutaway"></div>
+        <div class="info">
+          <span class="tag">3D Product Viz</span>
+          <h3>Serta — Mattress Cutaways</h3>
+          <p>Multi-layer cutaway animation revealing foam, coils, and materials for the national line.</p>
+        </div>
+      </div>
+
+      <a class="tile" href="https://www.spokesman.com/stories/2023/aug/07/national-commercial-for-prizepicks-fantasy-sports-" target="_blank" rel="noopener">
+        <span class="badge teal">National · NFL opening weekend</span>
+        <div class="imgwrap"><img loading="lazy" src="stills/prizepicks.jpg" alt="PrizePicks national commercial VFX"></div>
+        <div class="info">
+          <span class="tag">VFX · Compositing</span>
+          <h3>PrizePicks — “Up Your Excitement” <span class="ar">↗</span></h3>
+          <p>Live-action VFX and app-UI compositing for the national daily-fantasy spot.</p>
+        </div>
+      </a>
+
+      <div class="tile">
+        <div class="imgwrap"><img loading="lazy" src="stills/sleeper.jpg" alt="Sleeper app commercial motion graphics"></div>
+        <div class="info">
+          <span class="tag">Motion · VFX</span>
+          <h3>Sleeper — App TVC</h3>
+          <p>Motion graphics and phone-screen compositing for the national app commercial.</p>
+        </div>
+      </div>
+
+      <div class="tile feature">
+        <span class="badge gold">Bronze Student ADDY · 2023</span>
+        <div class="imgwrap"><img loading="lazy" src="stills/frequenc.jpg" alt="Frequen-C beverage brand and packaging"></div>
+        <div class="info">
+          <span class="tag">Brand · Packaging · 3D</span>
+          <h3>Frequen-C — Brand &amp; Packaging</h3>
+          <p>Beverage brand identity, label and packaging system, and 3D can mockups — an award-recognized student campaign.</p>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="imgwrap"><img loading="lazy" src="stills/cda.jpg" alt="CDA Casino and Resort integrated campaign"></div>
+        <div class="info">
+          <span class="tag">Integrated Campaign</span>
+          <h3>CDA Casino &amp; Resort</h3>
+          <p>Campaign design across print, digital, and out-of-home for a regional destination brand.</p>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="imgwrap"><img loading="lazy" src="stills/fourseasons.jpg" alt="Four Seasons Roofing Shield of Hope brand identity"></div>
+        <div class="info">
+          <span class="tag">Brand Identity</span>
+          <h3>Four Seasons Roofing — “Shield of Hope”</h3>
+          <p>Logo system and brand identity for a Best-in-PNW regional roofing brand.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <h3 class="reveal">Let's make something <b>worth remembering.</b></h3>
+      <div class="flinks reveal">
+        <a href="mailto:calebruble@gmail.com">✉&nbsp; calebruble@gmail.com</a>
+        <a href="tel:+15099601317">☎&nbsp; 509.960.1317</a>
+        <a href="https://www.linkedin.com/in/caleb-ruble" target="_blank" rel="noopener">in&nbsp; linkedin.com/in/caleb-ruble</a>
+        <a href="CalebRuble_Resume.pdf" target="_blank" rel="noopener">↓&nbsp; Download résumé (PDF)</a>
+      </div>
+    </div>
+    <div class="fine">
+      <span class="note">*Squatty Potty campaign award and 200M+ impression metrics are Colormatics team results; my contribution was the 3D and VFX work. Available for freelance &amp; contract creative work.</span>
+      <span>© 2026 Caleb Ruble</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.12});
+  document.querySelectorAll('.tile, .reveal').forEach(function(el,i){
+    if(el.classList.contains('tile')) el.style.transitionDelay = (i%3*70)+'ms';
+    io.observe(el);
+  });
+  document.querySelectorAll('.hero .reveal').forEach(function(el,i){
+    setTimeout(function(){ el.classList.add('in'); }, 120 + i*110);
+  });
+})();
+</script>
+</body>
+</html>
