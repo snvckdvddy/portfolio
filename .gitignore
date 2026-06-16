@@ -4,3 +4,7 @@ candidates/
 preview.png
 contact_sheet.jpg
 
+_incoming/
+extract_design.py
+finalize_design.py
+
